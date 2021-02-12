@@ -1,19 +1,32 @@
 ///////////////Menu Items (MVP)///////////////////
 
 const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
-const burger = {name: "Burger", price: 18, category: "Lunch"};
+var burger = {name: "Burger", price: 18, category: "Lunch"};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
+// var egg = {}
+// var sandwich = {}
+// var pizza = {}
 
-function createMenuItem(name, cost, category){
-    /* Code here */
+function createMenuItem(nameObj, name, price, category){
+  
+    var nameObj;
+
+    nameObj.name = name,
+    nameObj.price = price,
+    nameObj.category = category
+
+  return(console.log(nameObj))
 }
 
+
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
+createMenuItem("egg",17,"Breakfast");
+createMenuItem("sandwich",9,"Lunch");
+createMenuItem("pizza",25,"Dinner");
 
-
-
+console.clear();
 /* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
 
 Your method should accept: 
@@ -23,6 +36,28 @@ Your method should accept:
 and should return a number. 
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
+var teacher = "teacher";
+var student = "student";
+var person = "person";
+var pricess = burger.price;
+burger = {
+  discountMethod: function(person){
+
+      if(person === teacher) {
+        console.log(pricess);
+        // burger.price *= 0.9;
+        burger["price"] = burger["price"] * 10 / 9;
+        console.log("TEST");
+      
+      }
+      else if (person === student) {
+        burger.price = burger.price * 0;
+      }
+      return burger.price;
+  }
+}
+burger.discountMethod(teacher);
+console.log(burger.price);
 
 
 
@@ -40,11 +75,25 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
 /* Task 3: Console.log just Julius' feedback */
 
+  
+console.log(reviews[0].feedback);
+
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
 
+reviews.push({
+  name:"Faz",
+  rating: 5,
+  feedback: "It's an awesome restaurant!"
+})
+console.log(reviews[reviews.length-1]);
 
-/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
+/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays" */
+
+reviews[reviews.length-2].feedback =  "this place is chill with really cool people, great for getting work done on weekdays" 
+
+console.log(reviews[reviews.length-2]); 
+
 
 /*  Task 6: Write a function to return a review based on the index of the review in the array.
 
